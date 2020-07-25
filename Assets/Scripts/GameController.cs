@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
-
 public class GameController : MonoBehaviour
 {
     float timer = 0f;
@@ -20,9 +16,13 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     Song currentSong;
-    
+
     Page currentPage;
     int currentPageIndex = 0;
+
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private GameObject resumeButton;
 
     public Song CurrentSong
     {
@@ -105,6 +105,18 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!mainMenu.activeInHierarchy)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ContinueGame();
+            }
+        }
+
         if (gameRunning && !GameOver)
         {
             timer += Time.deltaTime;
@@ -132,5 +144,32 @@ public class GameController : MonoBehaviour
         {
 
         }
+    }
+
+    private void PauseGame()
+    {
+        //Disable scripts that still work while timescale is set to 0
+        Time.timeScale = 0;
+        gameRunning = false;
+        audioSource.Pause();
+
+        playButton.SetActive(false);
+        resumeButton.SetActive(true);
+        mainMenu.SetActive(true);
+
+        
+    }
+    public void ContinueGame()
+    {
+        //Enable the scripts again
+        Time.timeScale = 1;
+        gameRunning = true;
+        audioSource.UnPause();
+
+        playButton.SetActive(true);
+        resumeButton.SetActive(false);
+        mainMenu.SetActive(false);
+
+        
     }
 }
