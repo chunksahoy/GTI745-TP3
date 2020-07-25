@@ -156,8 +156,6 @@ public class GameController : MonoBehaviour
         playButton.SetActive(false);
         resumeButton.SetActive(true);
         mainMenu.SetActive(true);
-
-        
     }
     public void ContinueGame()
     {
@@ -168,8 +166,6 @@ public class GameController : MonoBehaviour
 
         playButton.SetActive(true);
         resumeButton.SetActive(false);
-        mainMenu.SetActive(false);
-
-        
+        mainMenu.SetActive(false);   
     }
 }
