@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraEye : MonoBehaviour
 {
-    private GameObject selected;
     private GameObject viewed;
 
     ControlPanel infoPanel;
     Vector3 CameraCenter;
+
     private void Awake()
     {
         infoPanel = GameObject.FindObjectOfType<ControlPanel>();
@@ -33,7 +33,7 @@ public class CameraEye : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                if (!hit.transform.gameObject.name.Equals("Floor"))
+                if (!hit.transform.gameObject.name.Equals("Floor") && !hit.transform.gameObject.name.Equals("Lectern"))
                 {
                     // Offset position above object box (in world space)
                     float offsetPosY = hit.collider.bounds.center.y + 1.2f;
@@ -56,6 +56,12 @@ public class CameraEye : MonoBehaviour
                     infoPanel.GetComponentInChildren<Canvas>().GetComponent<CanvasGroup>().interactable = false;
                     infoPanel.GetComponentInChildren<Canvas>().GetComponent<CanvasGroup>().blocksRaycasts = false;
                 }
+            }
+            else
+            {
+                infoPanel.GetComponentInChildren<Canvas>().GetComponent<CanvasGroup>().alpha = 0f;
+                infoPanel.GetComponentInChildren<Canvas>().GetComponent<CanvasGroup>().interactable = false;
+                infoPanel.GetComponentInChildren<Canvas>().GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
         }
     }

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7922426598481272825}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -13.58, y: 2.32, z: 5.51}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2920771047363357268}
@@ -60,8 +60,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitch: 0
   volume: 0
-  tempo: 0
+  tempo: 80
   instrument: Drum
+  image: {fileID: 21300000, guid: 94048c3f2c3337e4fb2a80139a659bd6, type: 3}
 --- !u!1001 &7922426599357481294
 PrefabInstance:
   m_ObjectHideFlags: 0

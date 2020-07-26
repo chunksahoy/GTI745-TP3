@@ -43,5 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3efd16e489b524280474c975ae07b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pages: []
-  songClip: {fileID: 8300000, guid: 4093a718b6664444ea5a6bed273f33ec, type: 3}
+  songClip: {fileID: 8300000, guid: 79d78cedf385dba4a8169cab85bda4c0, type: 3}

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7103353091167261987}
   m_LocalRotation: {x: 0, y: -0.17364825, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 10.79, y: 0.5, z: -0.79}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0025, y: 0.0025, z: 0.0025}
   m_Children:
   - {fileID: 2877407424978701799}
@@ -60,8 +60,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitch: 0
   volume: 0
-  tempo: 0
+  tempo: 80
   instrument: Piano
+  image: {fileID: 21300000, guid: 0e7ba853abc841a46ac86977e7a85533, type: 3}
 --- !u!1001 &7103353091121276669
 PrefabInstance:
   m_ObjectHideFlags: 0

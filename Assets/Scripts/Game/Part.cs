@@ -7,45 +7,34 @@ using System.Threading.Tasks;
 namespace Assets.Scripts.Game
 {
     public class Part
-    {      
-        private float pitch;
+    {
+        public float Pitch { get; set; }
 
-        private float volume;
+        public float Volume { get; set; }
 
-        private float tempo;
+        public float Tempo { get; set; }
 
-        private string instrument;
+        public string Instrument { get; set; }
 
-        public float Pitch
-        {
-            get { return pitch; }
-            set { pitch = value; }
-        }
-
-        public float Volume
-        {
-            get { return volume; }
-            set { volume = value; }
-        }
-
-        public float Tempo
-        {
-            get { return tempo; }
-            set { tempo = value; }
-        }
-
-        public string Instrument
-        {
-            get { return instrument; }
-            set { instrument = value; }
-        }
+        public bool IsVolumeValid = false;
+        public bool IsPitchValid = false;
+        public bool IsTempoValid = false;
 
         public Part(string name, float pitch, float vol, float temp)
         {
-            instrument = name;
-            this.pitch = pitch;
-            volume = vol;
-            tempo = temp;
+            Instrument = name;
+            Pitch = pitch;
+            Volume = vol;
+            Tempo = temp;
+        }
+
+        public bool IsOnTune(InstrumentSection instrument)
+        {
+            IsVolumeValid = instrument.Volume == Volume;
+            IsPitchValid = instrument.Pitch == Pitch;
+            IsTempoValid = instrument.Tempo == Tempo;
+
+            return IsVolumeValid && IsPitchValid && IsTempoValid;
         }
     }
 }
