@@ -29,7 +29,6 @@ public class ControlPanel : MonoBehaviour
         Tempo = GetComponentsInChildren<Text>().First(x => x.name.Equals("Tempo"));
 
         scrollables = GetComponentInChildren<Canvas>().GetComponentsInChildren<RectTransform>().First(x => x.name.Equals("Scrollable")).GetComponentsInChildren<UnityEngine.UI.Image>();
-        Debug.Log(scrollables.Length);
     }
 
     // Start is called before the first frame update

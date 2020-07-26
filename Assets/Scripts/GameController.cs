@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
     Text[] celloText;
     Text[] pianoText;
 
+    Text hint;
+
     Light lecternLight;
 
     InstrumentSection[] instruments;
@@ -69,6 +71,8 @@ public class GameController : MonoBehaviour
         {
             spot.spotlight.enabled = true;
         }
+
+        hint.text = "Keep your orchestra on tune";
 
         gameRunning = true;
         audioSource.clip = CurrentSong.Audio;
@@ -133,6 +137,8 @@ public class GameController : MonoBehaviour
         drumText = GameObject.Find("DrumSection").GetComponentsInChildren<Text>();
         celloText = GameObject.Find("CelloSection").GetComponentsInChildren<Text>();
         pianoText = GameObject.Find("PianoSection").GetComponentsInChildren<Text>();
+
+        hint = GameObject.Find("Hint").GetComponent<Text>();
 
         lecternLight = GameObject.Find("LecternLight").GetComponent<Light>();
         lecternLight.enabled = false;
@@ -237,8 +243,12 @@ public class GameController : MonoBehaviour
                 pianoScoreTempo++;
             }
         }
-        
-        FindObjectOfType<ControlPanel>().gameObject.SetActive(false);
+
+        //hide other UI elements
+        FindObjectOfType<ControlPanel>().enabled = false;
+        GameObject.Find("PageTimer").GetComponent<Image>().color = Color.clear;
+        hint.color = Color.clear;
+
         resultsPanel.SetActive(true);
         
         var drumResults = GameObject.Find("DrumResults");

@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
     private GameObject selected;
     ControlPanel infoPanel;
     Camera Camera;
+    GameController controller;
 
     bool actionPlayer = false;
     bool actionUI = false;
@@ -49,6 +50,7 @@ public class PlayerInputController : MonoBehaviour
     void Awake()
     {
         infoPanel = FindObjectOfType<ControlPanel>();
+        controller = FindObjectOfType<GameController>();
         Camera = GetComponentInChildren<Camera>();
     }
 
@@ -61,22 +63,25 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selected == null)
+        if (!controller.GameOver)
         {
-            FreeLook();
-        }
-        else
-        {
-            Camera.transform.LookAt(infoPanel.transform);
-        }
+            if (selected == null)
+            {
+                FreeLook();
+            }
+            else
+            {
+                Camera.transform.LookAt(infoPanel.transform);
+            }
 
-        if (actionUI)
-        {
-            Focus();
-        }
-        if (actionPlayer)
-        {
-            Defocus();
+            if (actionUI)
+            {
+                Focus();
+            }
+            if (actionPlayer)
+            {
+                Defocus();
+            }
         }
     }
     private void Focus()
