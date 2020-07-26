@@ -1,5 +1,7 @@
 # GTI745-TP3
 
+First tune your instruments as shown on the UI, once your orchestra is set, move to the lectern and interact with it to start the melody.
+
 Xbox Gamepad:
 
 - Move and look around with joysticks
